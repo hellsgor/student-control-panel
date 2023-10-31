@@ -1,17 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-bs-theme="dark" lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список студентов</title>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="style.css" rel="stylesheet">
+  <title>Список студентов</title>
 
-    <script src="main.js"></script>
+  <script defer src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="main.mjs" type="module"></script>
 </head>
 
 <body>
-    <!-- Этап 1. Создайте верстку элементов, которые будут статичны (неизменны).  -->
+<div class="container">
+  <h1>Панель управление студентами</h1>
+  <table class="table table-hover caption-top">
+    <caption>Список студентов</caption>
+    <thead>
+    <tr>
+      <th scope="col">Ф.И.О.</th>
+      <th scope="col">Факультет</th>
+      <th scope="col">Дата рождения и возраст</th>
+      <th scope="col">Годы обучения</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider" id="table-body">
+    </tbody>
+  </table>
+
+  <button
+    class="btn btn-primary"
+    data-bs-target="#addStudentModal"
+    data-bs-toggle="modal"
+    id="add-student-button"
+    type="button"
+  >Добавить студента
+  </button>
+  <div aria-hidden="true" aria-labelledby="Модальное окно - Добавить студента" class="modal fade" id="addStudentModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addStudentModalLabel">Добавить студента</h1>
+          <button aria-label="Закрыть окно" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+        </div>
+        <form class="modal-body" id="add-student-form" name="add-student-form">
+          <div class="input-group mb-2">
+            <span class="input-group-text">Фамилия</span>
+            <input aria-label="Фамилия студента" class="form-control" id="new-student-surname" name="new-student-surname" required type="text">
+          </div>
+          <div class="input-group mb-2">
+            <span class="input-group-text">Имя</span>
+            <input aria-label="Имя студента" class="form-control" id="new-student-name" name="new-student-name" required type="text">
+          </div>
+          <div class="input-group mb-4">
+            <span class="input-group-text">Отчество</span>
+            <input aria-label="Отчество студента" class="form-control" id="new-student-patronymic" name="new-student-patronymic" required type="text">
+          </div>
+          <div class="input-group mb-4">
+            <span class="input-group-text">Дата рождения</span>
+            <input aria-label="Дата рождения студента" class="form-control" id="new-student-dob" name="new-student-dob" required type="date">
+          </div>
+          <div class="input-group">
+            <span class="input-group-text">Факультет</span>
+            <input aria-label="Факультет" class="form-control" id="new-student-faculty" name="new-student-faculty" required type="text">
+          </div>
+        </form>
+        <div class="modal-footer justify-content-between align-items-center">
+          <small class="text-body-secondary col">Все поля обязательны для заполнения</small>
+          <button class="btn btn-primary col-3" type="button">Добавить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 
 </html>
