@@ -10,3 +10,11 @@
   margin: 0;
   -webkit-appearance: none;
 }
+
+form p:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+form p:last-child {
+  margin-bottom: 0;
+}
