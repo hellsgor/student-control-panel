@@ -1,6 +1,7 @@
 export const commonIDs = {
   STUDENTS_TABLE_BODY_ID: 'table-body',
   ADD_STUDENT_BUTTON_ID: 'new-student-form-call-button',
+  ADD_STUDENT_MODAL: 'add-student-modal',
 }
 
 export const newStudentFormIDs = {

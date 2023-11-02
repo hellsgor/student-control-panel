@@ -1,9 +1,9 @@
 import {showErrorText} from "./show-error-text.mjs";
+import {getAllFormControls} from "./get-all-form-controls.mjs";
 
 export function formValidation(form) {
 
-  const controls = Array.from(form.querySelectorAll('input'))
-    .concat(Array.from(form.querySelectorAll('select')));
+  const controls = getAllFormControls(form);
 
   let validationFlag = true;
 
