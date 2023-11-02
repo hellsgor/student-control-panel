@@ -7,5 +7,5 @@ export function addStudent(event) {
 
   const form = document.getElementById(newStudentFormIDs.NEW_STUDENT_FORM);
 
-  formValidation(form);
+  const isValid = formValidation(form);
 }
