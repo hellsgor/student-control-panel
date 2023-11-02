@@ -2,10 +2,13 @@ import {getStudentsList} from "./scripts/get-students-list.mjs";
 import {renderStudentsTable} from "./scripts/render-students-table.mjs";
 import {newStudentFormIDs} from "./scripts/constants/ids.mjs";
 import {addStudent} from "./scripts/form/add-student.mjs";
+import {setFacultyOptions} from "./scripts/set-faculty-options.mjs";
 
 const addStudentFormButton = document
   .getElementById(newStudentFormIDs.NEW_STUDENT_ADD_BUTTON);
 const studentsList = getStudentsList();
+
+setFacultyOptions();
 
 addStudentFormButton
   .addEventListener('click', (event) =>
