@@ -1,0 +1,12 @@
+@import url('./node_modules/bootstrap/dist/css/bootstrap.css');
+
+#new-student-start-studies-year {
+  -moz-appearance: textfield;
+}
+
+#new-student-start-studies-year::-webkit-inner-spin-button,
+#new-student-start-studies-year::-webkit-outer-spin-button {
+  display: none;
+  margin: 0;
+  -webkit-appearance: none;
+}

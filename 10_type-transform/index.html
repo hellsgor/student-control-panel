@@ -33,7 +33,7 @@
     class="btn btn-primary"
     data-bs-target="#addStudentModal"
     data-bs-toggle="modal"
-    id="add-student-button"
+    id="new-student-form-call-button"
     type="button"
   >Добавить студента
   </button>
@@ -44,31 +44,41 @@
           <h1 class="modal-title fs-5" id="addStudentModalLabel">Добавить студента</h1>
           <button aria-label="Закрыть окно" class="btn-close" data-bs-dismiss="modal" type="button"></button>
         </div>
-        <form class="modal-body" id="add-student-form" name="add-student-form">
-          <div class="input-group mb-2">
+        <form class="modal-body needs-validation" id="new-student-form" name="add-student-form" novalidate>
+          <div class="input-group has-validation mb-2">
             <span class="input-group-text">Фамилия</span>
             <input aria-label="Фамилия студента" class="form-control" id="new-student-surname" name="new-student-surname" required type="text">
+            <div class="invalid-feedback"></div>
           </div>
-          <div class="input-group mb-2">
+          <div class="input-group has-validation mb-2">
             <span class="input-group-text">Имя</span>
             <input aria-label="Имя студента" class="form-control" id="new-student-name" name="new-student-name" required type="text">
+            <div class="invalid-feedback"></div>
           </div>
-          <div class="input-group mb-4">
+          <div class="input-group has-validation mb-4">
             <span class="input-group-text">Отчество</span>
             <input aria-label="Отчество студента" class="form-control" id="new-student-patronymic" name="new-student-patronymic" required type="text">
+            <div class="invalid-feedback"></div>
           </div>
-          <div class="input-group mb-4">
+          <div class="input-group has-validation mb-4">
             <span class="input-group-text">Дата рождения</span>
             <input aria-label="Дата рождения студента" class="form-control" id="new-student-dob" name="new-student-dob" required type="date">
+            <div class="invalid-feedback"></div>
           </div>
-          <div class="input-group">
+          <div class="input-group has-validation mb-2">
             <span class="input-group-text">Факультет</span>
             <input aria-label="Факультет" class="form-control" id="new-student-faculty" name="new-student-faculty" required type="text">
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="input-group has-validation">
+            <span class="input-group-text">Год начала обучения</span>
+            <input aria-label="Год начала обучения" class="form-control" id="new-student-start-studies-year" name="new-student-start-studies-year" required type="number">
+            <div class="invalid-feedback"></div>
           </div>
         </form>
         <div class="modal-footer justify-content-between align-items-center">
           <small class="text-body-secondary col">Все поля обязательны для заполнения</small>
-          <button class="btn btn-primary col-3" type="button">Добавить</button>
+          <button class="btn btn-primary col-3" id="add-student-button" type="submit">Добавить</button>
         </div>
       </div>
     </div>
