@@ -2,6 +2,8 @@ import {showErrorText} from "./show-error-text.mjs";
 import {getAllFormControls} from "./get-all-form-controls.mjs";
 import {errors} from "../../constants/errors.mjs";
 import {isValidRegExp} from "./isValidRegExp.mjs";
+import {newStudentFormIDs} from "../../constants/ids.mjs";
+import {isValidDOB} from "./is-valid-dob.mjs";
 
 export function formValidation(form) {
 
@@ -33,6 +35,11 @@ export function formValidation(form) {
         )
       }
       commonValidationFlag = false;
+    }
+
+    if (control.id === newStudentFormIDs.NEW_STUDENT_DOB) {
+      isValidDOB(control);
+
     }
   })
 

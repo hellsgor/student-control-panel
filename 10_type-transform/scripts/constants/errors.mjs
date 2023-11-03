@@ -12,5 +12,11 @@ export const errors = {
     f002: (inputName) => {
       return `Поле "${inputName}" заполнено некорректно`;
     },
+    f003: (inputName) => {
+      return `Значение поля "${inputName}" менее допустимого`;
+    },
+    f004: (inputName) => {
+      return `Значение поля "${inputName}" более допустимого`;
+    },
   }
 }
