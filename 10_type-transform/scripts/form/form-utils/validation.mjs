@@ -24,22 +24,13 @@ export function formValidation(form) {
     }
 
     if (!isValidRegExp(control)) {
-      if (!control.closest('.input-group')
-        .querySelector('.invalid-feedback')
-        .querySelectorAll('p')
-        .length) {
-        showErrorText(
-          control,
-          control.closest('.input-group'),
-          errors.formsErrors.f002,
-        )
-      }
       commonValidationFlag = false;
     }
 
     if (control.id === newStudentFormIDs.NEW_STUDENT_DOB) {
-      isValidDOB(control);
-
+      if (!isValidDOB(control)) {
+        commonValidationFlag = false;
+      }
     }
   })
 
