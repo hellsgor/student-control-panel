@@ -7,7 +7,7 @@ import {resetFormErrors} from "./scripts/form/form-utils/reset-form-errors.mjs";
 import {
   getAllFormControls
 } from "./scripts/form/form-utils/get-all-form-controls.mjs";
-import {isValidRegExp} from "./scripts/form/form-utils/isValidRegExp.mjs";
+import {isValidRegExp} from "./scripts/form/form-utils/is-valid-regexp.mjs";
 import {isValidDOB} from "./scripts/form/form-utils/is-valid-dob.mjs";
 
 const addStudentFormButton = document

@@ -1,7 +1,7 @@
 import {showErrorText} from "./show-error-text.mjs";
 import {getAllFormControls} from "./get-all-form-controls.mjs";
 import {errors} from "../../constants/errors.mjs";
-import {isValidRegExp} from "./isValidRegExp.mjs";
+import {isValidRegExp} from "./is-valid-regexp.mjs";
 import {newStudentFormIDs} from "../../constants/ids.mjs";
 import {isValidDOB} from "./is-valid-dob.mjs";
 
