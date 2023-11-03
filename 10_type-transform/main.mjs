@@ -3,27 +3,38 @@ import {renderStudentsTable} from "./scripts/render-students-table.mjs";
 import {commonIDs, newStudentFormIDs} from "./scripts/constants/ids.mjs";
 import {addStudent} from "./scripts/form/add-student.mjs";
 import {setFacultyOptions} from "./scripts/set-faculty-options.mjs";
-import {resetErrors} from "./scripts/form/form-utils/reset-errors.mjs";
+import {resetFormErrors} from "./scripts/form/form-utils/reset-form-errors.mjs";
+import {
+  getAllFormControls
+} from "./scripts/form/form-utils/get-all-form-controls.mjs";
+import {isValidRegExp} from "./scripts/form/form-utils/isValidRegExp.mjs";
 
 const addStudentFormButton = document
   .getElementById(newStudentFormIDs.NEW_STUDENT_ADD_BUTTON);
 const addStudentFormCloseButton = document
   .getElementById(commonIDs.ADD_STUDENT_MODAL)
   .querySelector('.btn-close');
-
+const addStudentForm = document.getElementById(newStudentFormIDs.NEW_STUDENT_FORM)
+const addStudentFormControls = getAllFormControls(addStudentForm);
 const studentsList = getStudentsList();
 
 setFacultyOptions();
-
 renderStudentsTable(studentsList);
-
 addStudentFormButton
   .addEventListener('click', (event) =>
     addStudent(event));
+addStudentFormCloseButton.addEventListener('click', () => {
+  resetFormErrors(addStudentForm);
+});
+addStudentFormControls.forEach((control) => {
+  if (control.tagName === 'INPUT') control.addEventListener('input', () => {
+    isValidRegExp(control);
+  });
 
-addStudentFormCloseButton.addEventListener('click', () =>
-  resetErrors(document.getElementById(newStudentFormIDs.NEW_STUDENT_FORM)));
-
+  if (control.tagName === 'SELECT') control.addEventListener('change', () => {
+    isValidRegExp(control);
+  });
+})
 
 // Этап 5. К форме добавления студента добавьте слушатель события отправки формы, в котором будет проверка введенных данных.Если проверка пройдет успешно, добавляйте объект с данными студентов в массив студентов и запустите функцию отрисовки таблицы студентов, созданную на этапе 4.
 

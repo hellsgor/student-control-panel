@@ -1,8 +1,7 @@
-import {errors} from "../../constants/errors.mjs";
-
-export function showErrorText(input, inputParent) {
-  const inputName = inputParent.querySelector('.input-group-text').textContent;
+export function showErrorText(control, controlParent, errorFunction) {
+  const inputName = controlParent.querySelector('.input-group-text').textContent;
   const errorString = document.createElement('p');
-  errorString.innerText = errors.formsErrors.f001(inputName);
-  inputParent.querySelector('.invalid-feedback').append(errorString);
+  errorString.innerText = errorFunction(inputName);
+  controlParent.querySelector('.invalid-feedback').append(errorString);
+  control.classList.add('is-invalid');
 }

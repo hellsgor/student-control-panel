@@ -8,6 +8,9 @@ export const errors = {
   formsErrors: {
     f001: (inputName) => {
       return `Поле "${inputName}" не может быть пустым`;
-    }
+    },
+    f002: (inputName) => {
+      return `Поле "${inputName}" заполнено некорректно`;
+    },
   }
 }

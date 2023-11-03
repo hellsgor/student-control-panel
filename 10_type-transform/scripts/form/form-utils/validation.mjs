@@ -1,23 +1,40 @@
 import {showErrorText} from "./show-error-text.mjs";
 import {getAllFormControls} from "./get-all-form-controls.mjs";
+import {errors} from "../../constants/errors.mjs";
+import {isValidRegExp} from "./isValidRegExp.mjs";
 
 export function formValidation(form) {
 
   const controls = getAllFormControls(form);
 
-  let validationFlag = true;
+  let commonValidationFlag = true;
 
-  form.classList.add('was-validated');
-  controls.forEach((input) => {
+  controls.forEach((control) => {
 
-    if (!input.value.trim()) {
-      const inputParent = input.closest('.input-group');
-      showErrorText(input, inputParent);
+    if (!control.value.trim()) {
+      showErrorText(
+        control,
+        control.closest('.input-group'),
+        errors.formsErrors.f001,
+      );
 
-      validationFlag = false;
+      commonValidationFlag = false;
     }
 
+    if (!isValidRegExp(control)) {
+      if (!control.closest('.input-group')
+        .querySelector('.invalid-feedback')
+        .querySelectorAll('p')
+        .length) {
+        showErrorText(
+          control,
+          control.closest('.input-group'),
+          errors.formsErrors.f002,
+        )
+      }
+      commonValidationFlag = false;
+    }
   })
 
-  return validationFlag;
+  return commonValidationFlag;
 }
