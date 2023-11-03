@@ -11,7 +11,8 @@ export function addStudent(event) {
     .classList.add('already-validated');
 
   resetFormErrors(form);
-  const isValid = formValidation(form);
-
-  console.log(isValid);
+  if (!formValidation(form)) {
+    return;
+  }
+  console.log('ok');
 }

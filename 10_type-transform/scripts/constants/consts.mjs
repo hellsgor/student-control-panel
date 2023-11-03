@@ -1,6 +1,7 @@
 export const constants = {
   EDUCATION_PERIOD: 4,
   MIN_DOB: '1900-01-01',
+  MIN_START_YEAR: 2000,
 }
 
 export const regExps = {

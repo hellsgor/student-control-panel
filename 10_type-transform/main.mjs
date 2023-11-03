@@ -9,6 +9,9 @@ import {
 } from "./scripts/form/form-utils/get-all-form-controls.mjs";
 import {isValidRegExp} from "./scripts/form/form-utils/is-valid-regexp.mjs";
 import {isValidDOB} from "./scripts/form/form-utils/is-valid-dob.mjs";
+import {
+  isValidStartYear
+} from "./scripts/form/form-utils/is-valid-start-year.mjs";
 
 const addStudentFormButton = document
   .getElementById(newStudentFormIDs.NEW_STUDENT_ADD_BUTTON);
@@ -34,13 +37,15 @@ addStudentFormControls.forEach((control) => {
     if (control.id === newStudentFormIDs.NEW_STUDENT_DOB) {
       isValidDOB(control);
     }
+
+    if (control.id === newStudentFormIDs.NEW_STUDENT_START_YEAR) {
+      isValidStartYear(control);
+    }
   });
 
   if (control.tagName === 'SELECT') control.addEventListener('change', () => {
     isValidRegExp(control);
   });
-
-
 })
 
 // Этап 5. К форме добавления студента добавьте слушатель события отправки формы, в котором будет проверка введенных данных.Если проверка пройдет успешно, добавляйте объект с данными студентов в массив студентов и запустите функцию отрисовки таблицы студентов, созданную на этапе 4.
