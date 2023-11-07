@@ -21,10 +21,9 @@ const addStudentFormCloseButton = document
   .querySelector('.btn-close');
 const addStudentForm = document.getElementById(newStudentFormIDs.NEW_STUDENT_FORM)
 const addStudentFormControls = getAllFormControls(addStudentForm);
-const studentsList = getStudentsList();
 
 setFacultyOptions();
-renderStudentsTable(studentsList);
+renderStudentsTable(getStudentsList());
 addStudentFormButton
   .addEventListener('click', (event) =>
     addStudent(event));
