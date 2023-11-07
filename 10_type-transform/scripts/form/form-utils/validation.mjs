@@ -5,6 +5,7 @@ import {isValidRegExp} from "./is-valid-regexp.mjs";
 import {newStudentFormIDs} from "../../constants/ids.mjs";
 import {isValidDOB} from "./is-valid-dob.mjs";
 import {isValidStartYear} from "./is-valid-start-year.mjs";
+import {isYearsValid} from "./is-years-valid.mjs";
 
 export function formValidation(form) {
 
@@ -41,9 +42,14 @@ export function formValidation(form) {
         if (!isValidStartYear(control)) {
           commonValidationFlag = false;
         }
+
+        if (!isYearsValid()) {
+          commonValidationFlag = false;
+        }
       }
     }
   })
+
 
   return commonValidationFlag;
 }

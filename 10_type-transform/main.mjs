@@ -12,6 +12,7 @@ import {isValidDOB} from "./scripts/form/form-utils/is-valid-dob.mjs";
 import {
   isValidStartYear
 } from "./scripts/form/form-utils/is-valid-start-year.mjs";
+import {isYearsValid} from "./scripts/form/form-utils/is-years-valid.mjs";
 
 const addStudentFormButton = document
   .getElementById(newStudentFormIDs.NEW_STUDENT_ADD_BUTTON);
@@ -34,12 +35,21 @@ addStudentFormControls.forEach((control) => {
   if (control.tagName === 'INPUT') control.addEventListener('input', () => {
     isValidRegExp(control);
 
-    if (control.id === newStudentFormIDs.NEW_STUDENT_DOB) {
-      isValidDOB(control);
-    }
+    if (addStudentForm.classList.contains('already-validated')) {
+      if (control.id === newStudentFormIDs.NEW_STUDENT_DOB) {
+        isValidDOB(control);
+      }
 
-    if (control.id === newStudentFormIDs.NEW_STUDENT_START_YEAR) {
-      isValidStartYear(control);
+      if (control.id === newStudentFormIDs.NEW_STUDENT_START_YEAR) {
+        isValidStartYear(control);
+      }
+
+      if ((control.id === newStudentFormIDs.NEW_STUDENT_START_YEAR
+          || control.id === newStudentFormIDs.NEW_STUDENT_DOB)
+        && control.value.length === 4
+        && addStudentForm.querySelector('#' + newStudentFormIDs.NEW_STUDENT_DOB).value) {
+        isYearsValid();
+      }
     }
   });
 

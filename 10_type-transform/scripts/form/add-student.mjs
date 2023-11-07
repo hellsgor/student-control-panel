@@ -12,6 +12,7 @@ export function addStudent(event) {
 
   resetFormErrors(form);
   if (!formValidation(form)) {
+    console.log('не ok');
     return;
   }
   console.log('ok');
