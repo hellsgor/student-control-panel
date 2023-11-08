@@ -6,8 +6,7 @@ import {getStudentsList} from "../get-students-list.mjs";
 import {getMaxID} from "../get-max-ID.mjs";
 import {renderStudentsTable} from "../render-students-table.mjs";
 
-export function addStudent(event) {
-  event.preventDefault();
+export function addStudent() {
 
   const form = document.getElementById(newStudentFormIDs.NEW_STUDENT_FORM);
 
@@ -22,7 +21,7 @@ export function addStudent(event) {
   const data = serializeForm(form);
   const studentsList = getStudentsList();
   data.id = getMaxID(studentsList) + 1;
-  
+
   renderStudentsTable(studentsList.concat(data));
 
   // renderStudentsTable(getStudentsList());
