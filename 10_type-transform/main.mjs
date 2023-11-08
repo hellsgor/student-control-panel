@@ -2,7 +2,9 @@ import {getStudentsList} from "./scripts/get-students-list.mjs";
 import {renderStudentsTable} from "./scripts/render-students-table.mjs";
 import {newStudentFormIDs} from "./scripts/constants/ids.mjs";
 import {addStudent} from "./scripts/form/add-student.mjs";
-import {setFacultyOptions} from "./scripts/set-faculty-options.mjs";
+import {
+  setFacultyOptions
+} from "./scripts/moc/moc-helpers/set-faculty-options.mjs";
 import {
   prepareValidation
 } from "./scripts/form/form-utils/prepare-validation.mjs";
@@ -20,8 +22,6 @@ addStudentFormButton
     addStudent(event);
   })
 
-
-// Этап 5. К форме добавления студента добавьте слушатель события отправки формы, в котором будет проверка введенных данных.Если проверка пройдет успешно, добавляйте объект с данными студентов в массив студентов и запустите функцию отрисовки таблицы студентов, созданную на этапе 4.
 
 // Этап 5. Создайте функцию сортировки массива студентов и добавьте события кликов на соответствующие колонки.
 

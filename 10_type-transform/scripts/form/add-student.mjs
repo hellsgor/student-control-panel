@@ -3,7 +3,7 @@ import {formValidation} from "./form-utils/validation.mjs";
 import {resetFormErrors} from "./form-utils/reset-form-errors.mjs";
 import {serializeForm} from "./form-utils/serialize-form.mjs";
 import {getStudentsList} from "../get-students-list.mjs";
-import {getMaxID} from "../get-max-ID.mjs";
+import {getMaxID} from "../utils/get-max-ID.mjs";
 import {renderStudentsTable} from "../render-students-table.mjs";
 
 export function addStudent() {
