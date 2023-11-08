@@ -15,7 +15,6 @@ export function addStudent() {
 
   resetFormErrors(form);
   if (!formValidation(form)) {
-    console.log('не ok');
     return;
   }
   const data = serializeForm(form);
@@ -23,6 +22,4 @@ export function addStudent() {
   data.id = getMaxID(studentsList) + 1;
 
   renderStudentsTable(studentsList.concat(data));
-
-  // renderStudentsTable(getStudentsList());
 }
