@@ -8,18 +8,23 @@ import {
 import {
   prepareValidation
 } from "./scripts/form/form-utils/prepare-validation.mjs";
+import {customSort} from "./scripts/custom-sort.mjs";
+import {sortingProperties} from "./scripts/constants/consts.mjs";
+import {prepareSort} from "./scripts/prepare-sort.mjs";
+
+let actualArrayOfStudents = getStudentsList();
 
 const addStudentFormButton = document
   .getElementById(newStudentFormIDs.NEW_STUDENT_ADD_BUTTON);
 
 setFacultyOptions();
-renderStudentsTable(getStudentsList());
+renderStudentsTable(actualArrayOfStudents)
 
 addStudentFormButton
   .addEventListener('click', (event) => {
     event.preventDefault();
     prepareValidation();
-    addStudent(event);
+    actualArrayOfStudents = addStudent(actualArrayOfStudents);
   })
 
 
