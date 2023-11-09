@@ -30,10 +30,14 @@ export function prepareValidation() {
           isValidStartYear(control);
         }
 
-        if ((control.id === newStudentFormIDs.NEW_STUDENT_START_YEAR
-            || control.id === newStudentFormIDs.NEW_STUDENT_DOB)
+        if (control.id === newStudentFormIDs.NEW_STUDENT_DOB
+          && addStudentForm.querySelector('#' + newStudentFormIDs.NEW_STUDENT_START_YEAR).value.length === 4) {
+          isYearsValid();
+        }
+
+        if (control.id === newStudentFormIDs.NEW_STUDENT_START_YEAR
           && control.value.length === 4
-          && addStudentForm.querySelector('#' + newStudentFormIDs.NEW_STUDENT_DOB).value) {
+          && addStudentForm.querySelector('#' + newStudentFormIDs.NEW_STUDENT_DOB).classList.contains('is-valid')) {
           isYearsValid();
         }
       }
