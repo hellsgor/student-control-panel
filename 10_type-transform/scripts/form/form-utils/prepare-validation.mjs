@@ -40,6 +40,11 @@ export function prepareValidation() {
           && addStudentForm.querySelector('#' + newStudentFormIDs.NEW_STUDENT_DOB).classList.contains('is-valid')) {
           isYearsValid();
         }
+
+        if (control.id === newStudentFormIDs.NEW_STUDENT_START_YEAR
+          && control.value.length === 4) {
+          isValidStartYear(control);
+        }
       }
     });
 

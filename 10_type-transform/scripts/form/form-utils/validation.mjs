@@ -49,7 +49,5 @@ export function formValidation(form) {
       }
     }
   })
-
-
   return commonValidationFlag;
 }
