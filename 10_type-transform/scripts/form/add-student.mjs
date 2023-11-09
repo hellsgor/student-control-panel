@@ -5,6 +5,9 @@ import {serializeForm} from "./form-utils/serialize-form.mjs";
 import {getMaxID} from "../utils/get-max-ID.mjs";
 import {renderStudentsTable} from "../render-students-table.mjs";
 import {clearFormControls} from "./form-utils/clear-form-controls.mjs";
+import {customSort} from "../custom-sort/custom-sort.mjs";
+import {findSortColumnID} from "../custom-sort/find-sort-column-id.mjs";
+import {getSortingProperty} from "../custom-sort/get-sorting-property.mjs";
 
 export function addStudent(actualArrayOfStudents) {
   const form = document.getElementById(newStudentFormIDs.NEW_STUDENT_FORM);
@@ -27,6 +30,13 @@ export function addStudent(actualArrayOfStudents) {
     .querySelector('button.btn-close').click();
 
   const newStudentsArray = actualArrayOfStudents.concat(data);
-  renderStudentsTable(newStudentsArray);
+  const findSortResult = findSortColumnID();
+  renderStudentsTable(
+    customSort(
+      newStudentsArray,
+      findSortResult.classFlag,
+      getSortingProperty(findSortResult.sortedColumnID),
+    )
+  );
   return newStudentsArray;
 }

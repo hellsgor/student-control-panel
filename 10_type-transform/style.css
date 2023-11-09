@@ -65,9 +65,9 @@ form p:last-child {
   transform: translateY(-50%) rotateX(180deg);
 }
 
-.table-column-name_least-to-most::after,
+.table-column-name_list-to-most::after,
 .table-column-name_most-to-list::before {
-  background-image: url("assets/icons/arrow-active.svg");
+  background-image: url("./assets/icons/arrow-active.svg");
 }
 
 th {
@@ -81,12 +81,12 @@ th {
 
   th:hover .table-column-name::after,
   th:hover .table-column-name::before {
-    background-image: url("assets/icons/arrow-hover.svg");
+    background-image: url("./assets/icons/arrow-hover.svg");
   }
 
-  th:hover .table-column-name_least-to-most::after,
+  th:hover .table-column-name_list-to-most::after,
   th:hover .table-column-name_most-to-list::before {
-    background-image: url("assets/icons/arrow-active.svg");
+    background-image: url("./assets/icons/arrow-active.svg");
   }
 }
 

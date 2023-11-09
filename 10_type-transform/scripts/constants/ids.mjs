@@ -14,3 +14,13 @@ export const newStudentFormIDs = {
   NEW_STUDENT_FACULTY: 'new-student-faculty',
   NEW_STUDENT_ADD_BUTTON: 'add-student-button',
 }
+
+export const studentsTableIDs = {
+  TABLE: 'students-table',
+  tableHeadings: {
+    FIO: 'students-fio-column',
+    FACULTY: 'students-faculty-column',
+    DOB: 'students-dob-column',
+    STUDY: 'students-years-of-study',
+  },
+}

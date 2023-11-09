@@ -5,12 +5,11 @@ export const constants = {
   MIN_DIFFERENCE_BETWEEN_DOB_YEAR_AND_YEAR_OF_STUDY_START: 16,
 }
 
-export const studentsTableIDs = {
-  TABLE: 'students-table',
-  FIO: 'students-fio-column',
-  FACULTY: 'students-faculty-column',
-  DOB: 'students-dob-column',
-  STUDY: 'students-years-of-study'
+export const sortingProperties = {
+  NAME: 'name',
+  FACULTY: 'faculty',
+  DOB: 'dob',
+  START_STUDIES_YEAR: 'startStudiesYear',
 }
 
 export const regExps = {
