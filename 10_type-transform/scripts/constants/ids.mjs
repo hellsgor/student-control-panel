@@ -24,3 +24,13 @@ export const studentsTableIDs = {
     STUDY: 'students-years-of-study',
   },
 }
+
+export const filtersIDs = {
+  filtersBlock: 'filters-block',
+  filtersControls: {
+    fio: 'filter-fio-control-id',
+    faculty: 'filter-faculty-control-id',
+    studyStart: 'filter-start-study-year-control-id',
+    studyFinish: 'filter-finish-study-year-control-id',
+  },
+}
