@@ -14,8 +14,34 @@
 
 <body>
 <div class="container">
-  <h1>Панель управление студентами</h1>
-  <table class="table table-hover caption-top" id="students-table">
+  <h1 class="mb-4 mt-4">Панель управление студентами</h1>
+
+  <div class="filters mb-4 gap-3 d-flex justify-content-between" id="filters-block">
+    <div class="filters__controls d-flex gap-4">
+      <div class="filters__fio-block col-3">
+        <input aria-label="Фильтрация по фамилии, имени, отчеству студента" class="form-control form-control" id="filter-fio-control-id" placeholder="Ф.И.О." type="text">
+      </div>
+      <div class="filters__faculty-block col-3">
+        <select aria-label="Фильтрация по факультету" class="form-select form-select" id="filter-faculty-control-id">
+          <option disabled selected value="">Выберите факультет</option>
+        </select>
+      </div>
+      <div class="filters__start-study-year-block col-3">
+        <input aria-label="Фильтрация по году начала обучения" class="form-control form-control" id="filter-start-study-year-control-id" placeholder="Год начала обучения" type="text">
+      </div>
+      <div class="filters__finish-study-year-block col-3">
+        <input aria-label="Фильтрация по году окончания обучения" class="form-control form-control" id="filter-finish-study-year-control-id" placeholder="Год окончания обучения" type="text">
+      </div>
+    </div>
+    <button
+      class="btn btn-outline-secondary"
+      id="filters-clear-button-id"
+      type="button"
+    >сбросить фильтры
+    </button>
+  </div>
+
+  <table class="table table-hover caption-top mb-4" id="students-table">
     <caption>Список студентов</caption>
     <thead>
     <tr>
@@ -53,6 +79,7 @@
     type="button"
   >Добавить студента
   </button>
+
   <div aria-hidden="true" aria-labelledby="Модальное окно - Добавить студента" class="modal fade" id="add-student-modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
