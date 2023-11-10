@@ -1,8 +1,6 @@
 import {FACULTY} from "../faculty.mjs";
-import {newStudentFormIDs} from "../../constants/ids.mjs";
 
-export function setFacultyOptions() {
-  const facultiesSelector = document.getElementById(newStudentFormIDs.NEW_STUDENT_FACULTY);
+export function setFacultyOptions(facultiesSelector) {
   FACULTY
     .slice()
     .sort()
