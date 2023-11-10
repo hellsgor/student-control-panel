@@ -1,5 +1,5 @@
-import {getStudentsList} from "./scripts/get-students-list.mjs";
-import {renderStudentsTable} from "./scripts/render-students-table.mjs";
+import {getStudentsList} from "./scripts/table/get-students-list.mjs";
+import {renderStudentsTable} from "./scripts/table/render-students-table.mjs";
 import {
   filtersIDs,
   newStudentFormIDs,

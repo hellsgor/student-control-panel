@@ -1,10 +1,8 @@
-import {catchError} from "./utils/catch-error.mjs";
-import {errors} from "./constants/errors.mjs";
-import {addTd} from "./utils/add-td.mjs";
-import {convertDobToTableTd} from "./utils/convert-dob-to-table-td.mjs";
-import {
-  convertEduPeriodToTableTd
-} from "./utils/convert-edu-period-to-table-td.mjs";
+import {catchError} from "./catch-error.mjs";
+import {errors} from "../constants/errors.mjs";
+import {addTd} from "./add-td.mjs";
+import {convertDobToTableTd} from "./convert-dob-to-table-td.mjs";
+import {convertEduPeriodToTableTd} from "./convert-edu-period-to-table-td.mjs";
 
 export function getStudentItem(student) {
   const tableRow = document.createElement('tr');

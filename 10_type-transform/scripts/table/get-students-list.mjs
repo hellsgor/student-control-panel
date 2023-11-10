@@ -1,4 +1,4 @@
-import {STUDENTS} from "./moc/students-list.mjs";
+import {STUDENTS} from "../moc/students-list.mjs";
 
 export function getStudentsList() {
   return STUDENTS
