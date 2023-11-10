@@ -18,6 +18,14 @@ import {
 } from "./scripts/custom-sort/visualization-of-sorting.mjs";
 import {customSort} from "./scripts/custom-sort/custom-sort.mjs";
 import {sortingProperties} from "./scripts/constants/consts.mjs";
+import {
+  getFiltersControls
+} from "./scripts/filters/utils/get-filters-controls.mjs";
+import {findSortColumnID} from "./scripts/custom-sort/find-sort-column-id.mjs";
+import {
+  getSortingProperty
+} from "./scripts/custom-sort/get-sorting-property.mjs";
+import {customFilter} from "./scripts/filters/custom-filter.mjs";
 
 const headingsCells = document
   .getElementById(studentsTableIDs.TABLE)
@@ -27,7 +35,7 @@ const addStudentFormButton = document
 
 let actualArrayOfStudents = getStudentsList();
 
-setFacultyOptions(document.getElementById(filtersIDs.filtersControls.FACULTY));
+
 setFacultyOptions(document.getElementById(newStudentFormIDs.NEW_STUDENT_FACULTY));
 renderStudentsTable(
   customSort(
@@ -56,7 +64,22 @@ headingsCells.forEach((cell) => {
   ))
 })
 
-
-// Этап 5. Создайте функцию сортировки массива студентов и добавьте события кликов на соответствующие колонки.
-
-// Этап 6. Создайте функцию фильтрации массива студентов и добавьте события для элементов формы.
+setFacultyOptions(document.getElementById(filtersIDs.filtersControls.FACULTY));
+getFiltersControls().forEach((control) => {
+  control.addEventListener(control.tagName === 'SELECT'
+      ? 'change'
+      : 'input'
+    , () => {
+      if (control.value.length >= (control.tagName === 'SELECT' ? 2 : 3)) {
+        console.log(control.value);
+        const findSortResult = findSortColumnID();
+        renderStudentsTable(
+          customSort(
+            customFilter(actualArrayOfStudents, control),
+            findSortResult.classFlag,
+            getSortingProperty(findSortResult.sortedColumnID),
+          )
+        );
+      }
+    })
+})
