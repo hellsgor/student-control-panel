@@ -27,6 +27,7 @@ export const studentsTableIDs = {
 
 export const filtersIDs = {
   FILTERS_BLOCK: 'filters-block',
+  FILTERS_CONTROLS_BLOCK: 'filters-controls-block',
   filtersControls: {
     FIO: 'filter-fio-control-id',
     FACULTY: 'filter-faculty-control-id',
