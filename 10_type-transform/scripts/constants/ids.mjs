@@ -26,11 +26,11 @@ export const studentsTableIDs = {
 }
 
 export const filtersIDs = {
-  filtersBlock: 'filters-block',
+  FILTERS_BLOCK: 'filters-block',
   filtersControls: {
-    fio: 'filter-fio-control-id',
-    faculty: 'filter-faculty-control-id',
-    studyStart: 'filter-start-study-year-control-id',
-    studyFinish: 'filter-finish-study-year-control-id',
+    FIO: 'filter-fio-control-id',
+    FACULTY: 'filter-faculty-control-id',
+    STUDY_START: 'filter-start-study-year-control-id',
+    STUDY_FINISH: 'filter-finish-study-year-control-id',
   },
 }

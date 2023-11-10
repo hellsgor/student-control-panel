@@ -1,6 +1,10 @@
 import {getStudentsList} from "./scripts/get-students-list.mjs";
 import {renderStudentsTable} from "./scripts/render-students-table.mjs";
-import {newStudentFormIDs, studentsTableIDs} from "./scripts/constants/ids.mjs";
+import {
+  filtersIDs,
+  newStudentFormIDs,
+  studentsTableIDs
+} from "./scripts/constants/ids.mjs";
 import {addStudent} from "./scripts/form/add-student.mjs";
 import {
   setFacultyOptions
@@ -23,7 +27,8 @@ const addStudentFormButton = document
 
 let actualArrayOfStudents = getStudentsList();
 
-setFacultyOptions();
+setFacultyOptions(document.getElementById(filtersIDs.filtersControls.FACULTY));
+setFacultyOptions(document.getElementById(newStudentFormIDs.NEW_STUDENT_FACULTY));
 renderStudentsTable(
   customSort(
     actualArrayOfStudents,
