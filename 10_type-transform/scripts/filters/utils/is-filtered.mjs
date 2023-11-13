@@ -10,6 +10,7 @@ export function isFiltered(students, controls) {
       students = customFilter(students, control);
     }
     addFilteredClass(control, isFilterControlValidResult);
+    showFiltersClearButton();
   })
   return students;
 }
