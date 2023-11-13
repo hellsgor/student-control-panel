@@ -1,4 +1,5 @@
 import {filtersIDs} from "../../constants/ids.mjs";
+import {addFilteredClass} from "./add-filtered-class.mjs";
 
 export function isFilterControlValid(control) {
   let controlValueLength;
@@ -11,11 +12,5 @@ export function isFilterControlValid(control) {
       controlValueLength = 3;
     }
   }
-  if (control.value.trim().length >= controlValueLength) {
-    control.classList.add('filtered');
-    return true;
-  } else {
-    control.classList.remove('filtered');
-    return false;
-  }
+  return addFilteredClass(control, controlValueLength);
 }
