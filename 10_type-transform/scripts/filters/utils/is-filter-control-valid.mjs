@@ -11,7 +11,7 @@ export function isFilterControlValid(control) {
       controlValueLength = 3;
     }
   }
-  if (control.value.length >= controlValueLength) {
+  if (control.value.trim().length >= controlValueLength) {
     control.classList.add('filtered');
     return true;
   } else {
