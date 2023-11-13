@@ -1,4 +1,5 @@
 import {filtersIDs} from "../constants/ids.mjs";
+import {constants} from "../constants/consts.mjs";
 
 export function customFilter(students, control) {
   if (control.id === filtersIDs.filtersControls.FIO) {
@@ -12,6 +13,10 @@ export function customFilter(students, control) {
   if (control.id === filtersIDs.filtersControls.STUDY_START) {
     return students.filter((student) =>
       student.startStudiesYear === Number(control.value))
+  }
+  if (control.id === filtersIDs.filtersControls.STUDY_FINISH) {
+    return students.filter((student) =>
+      (student.startStudiesYear + constants.EDUCATION_PERIOD) === Number(control.value))
   }
   return students;
 }
