@@ -98,6 +98,16 @@ th {
   th:hover .table-column-name_most-to-list::before {
     background-image: url("./assets/icons/arrow-active.svg");
   }
+
+  #filters-clear-button-id {
+    transition: transform ease-in-out .1s;
+  }
+
+  .visually-hidden {
+    position: fixed;
+    z-index: -10001;
+    transform: scale(0);
+  }
 }
 
 

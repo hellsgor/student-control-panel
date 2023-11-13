@@ -23,9 +23,6 @@ import {
 } from "./scripts/filters/utils/get-filters-controls.mjs";
 import {findSortColumnID} from "./scripts/custom-sort/find-sort-column-id.mjs";
 import {isFiltered} from "./scripts/filters/utils/is-filtered.mjs";
-import {
-  isFilterControlValid
-} from "./scripts/filters/utils/is-filter-control-valid.mjs";
 import {setFiltered} from "./scripts/filters/utils/set-filtered.mjs";
 
 const headingsCells = document
@@ -71,13 +68,9 @@ filtersControls.forEach((control) => {
       ? 'change'
       : 'input'
     , () => {
-      const foundSortResult = findSortColumnID();
-      if (isFilterControlValid(control)
-        || control.value.length <= 0) {
-        setFiltered(
-          actualArrayOfStudents,
-          filtersControls,
-          foundSortResult);
-      }
+      setFiltered(
+        actualArrayOfStudents,
+        filtersControls,
+        findSortColumnID());
     })
 })

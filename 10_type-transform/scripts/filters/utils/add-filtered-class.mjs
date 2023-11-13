@@ -1,9 +1,7 @@
-export function addFilteredClass(control, controlValueLength) {
-  if (control.value.trim().length >= controlValueLength) {
+export function addFilteredClass(control, flag) {
+  if (flag) {
     control.classList.add('filtered');
-    return true;
   } else {
     control.classList.remove('filtered');
-    return false;
   }
 }

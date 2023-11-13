@@ -1,16 +1,16 @@
 import {filtersIDs} from "../../constants/ids.mjs";
-import {addFilteredClass} from "./add-filtered-class.mjs";
+import {
+  getExpectControlValueLength
+} from "./get-expect-control-value-length.mjs";
 
 export function isFilterControlValid(control) {
-  let controlValueLength;
-  if (control.tagName === 'SELECT') {
-    controlValueLength = 2;
-  } else {
-    if (control.id === filtersIDs.filtersControls.STUDY_START || control.id === filtersIDs.filtersControls.STUDY_FINISH) {
-      controlValueLength = 4;
-    } else {
-      controlValueLength = 3;
-    }
+  if (control.id === filtersIDs.filtersControls.STUDY_START
+    || control.id === filtersIDs.filtersControls.STUDY_FINISH) {
+    return control.value.trim().length === getExpectControlValueLength(control.id);
   }
-  return addFilteredClass(control, controlValueLength);
+
+  if (control.id === filtersIDs.filtersControls.FIO
+    || control.id === filtersIDs.filtersControls.FACULTY) {
+    return control.value.trim().length >= getExpectControlValueLength(control.id);
+  }
 }
