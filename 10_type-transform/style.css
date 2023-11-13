@@ -4,12 +4,17 @@
   --svg-default-size: 12px;
 }
 
-#new-student-start-studies-year {
+#new-student-start-studies-year,
+#filter-start-study-year-control-id {
   -moz-appearance: textfield;
 }
 
 #new-student-start-studies-year::-webkit-inner-spin-button,
-#new-student-start-studies-year::-webkit-outer-spin-button {
+#new-student-start-studies-year::-webkit-outer-spin-button,
+#filter-start-study-year-control-id::-webkit-inner-spin-button,
+#filter-start-study-year-control-id::-webkit-outer-spin-button,
+#filter-finish-study-year-control-id::-webkit-inner-spin-button,
+#filter-finish-study-year-control-id::-webkit-outer-spin-button {
   display: none;
   margin: 0;
   -webkit-appearance: none;
