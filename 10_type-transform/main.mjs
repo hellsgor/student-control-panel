@@ -24,6 +24,9 @@ import {
 import {findSortColumnID} from "./scripts/custom-sort/find-sort-column-id.mjs";
 import {isFiltered} from "./scripts/filters/utils/is-filtered.mjs";
 import {setFiltered} from "./scripts/filters/utils/set-filtered.mjs";
+import {
+  clearFiltersControls
+} from "./scripts/filters/utils/clear-filters-controls.mjs";
 
 const headingsCells = document
   .getElementById(studentsTableIDs.TABLE)
@@ -31,6 +34,8 @@ const headingsCells = document
 const addStudentFormButton = document
   .getElementById(newStudentFormIDs.NEW_STUDENT_ADD_BUTTON);
 const filtersControls = getFiltersControls();
+const clearFiltersControlsButton = document
+  .getElementById(filtersIDs.FILTERS_CLEAR_BUTTON);
 
 let actualArrayOfStudents = getStudentsList();
 
@@ -74,3 +79,7 @@ filtersControls.forEach((control) => {
         findSortColumnID());
     })
 })
+
+clearFiltersControlsButton.addEventListener('click', () => {
+  clearFiltersControls(actualArrayOfStudents, filtersControls);
+});
