@@ -6,5 +6,8 @@ export function customFilter(students, control) {
       `${student.surname} ${student.name} ${student.patronymic}`.toLowerCase()
         .includes(control.value.toLowerCase()));
   }
+  if (control.id === filtersIDs.filtersControls.FACULTY) {
+    return students.filter((student) => student.faculty.includes(control.value));
+  }
   return students;
 }

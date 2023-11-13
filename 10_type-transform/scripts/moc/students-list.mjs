@@ -5,7 +5,7 @@ export const STUDENTS = [
     patronymic: 'Константинович',
     dob: new Date('1994-06-03'),
     startStudiesYear: 2012,
-    faculty: 'Горно-геологический',
+    faculty: 'Романо-германской филологии',
   },
   {
     name: 'Евгения',
@@ -13,7 +13,7 @@ export const STUDENTS = [
     patronymic: 'Антоновна',
     dob: new Date('1992-01-25'),
     startStudiesYear: 2012,
-    faculty: 'Кибернетики и автоматики',
+    faculty: 'Искусств',
   },
   {
     name: 'Михаил',
@@ -21,7 +21,7 @@ export const STUDENTS = [
     patronymic: 'Викторович',
     dob: new Date('1984-11-24'),
     startStudiesYear: 2021,
-    faculty: 'Сельскохозяйственный',
+    faculty: 'Психологии',
   },
   {
     name: 'Егор',
@@ -29,7 +29,7 @@ export const STUDENTS = [
     patronymic: 'Альбертович',
     dob: new Date('1998-11-14'),
     startStudiesYear: 2015,
-    faculty: 'Архитектуры и дизайна',
+    faculty: 'Восточных и редких языков',
   },
   {
     name: 'Дарина',
@@ -37,7 +37,7 @@ export const STUDENTS = [
     patronymic: 'Егоровна',
     dob: new Date('1979-09-30'),
     startStudiesYear: 2004,
-    faculty: 'Кибернетики и автоматики',
+    faculty: 'Лингвистики',
   },
   {
     name: 'Исай',
@@ -45,6 +45,6 @@ export const STUDENTS = [
     patronymic: 'Викторович',
     dob: new Date('1987-04-21'),
     startStudiesYear: 2004,
-    faculty: 'Архитектуры и дизайна',
+    faculty: 'Искусств',
   },
 ];

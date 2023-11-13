@@ -22,19 +22,20 @@ import {
   getFiltersControls
 } from "./scripts/filters/utils/get-filters-controls.mjs";
 import {findSortColumnID} from "./scripts/custom-sort/find-sort-column-id.mjs";
+import {isFiltered} from "./scripts/filters/utils/is-filtered.mjs";
 import {
-  getSortingProperty
-} from "./scripts/custom-sort/get-sorting-property.mjs";
-import {customFilter} from "./scripts/filters/custom-filter.mjs";
+  isFilterControlValid
+} from "./scripts/filters/utils/is-filter-control-valid.mjs";
+import {setFiltered} from "./scripts/filters/utils/set-filtered.mjs";
 
 const headingsCells = document
   .getElementById(studentsTableIDs.TABLE)
   .querySelectorAll('th .table-column-name');
 const addStudentFormButton = document
   .getElementById(newStudentFormIDs.NEW_STUDENT_ADD_BUTTON);
+const filtersControls = getFiltersControls();
 
 let actualArrayOfStudents = getStudentsList();
-
 
 setFacultyOptions(document.getElementById(newStudentFormIDs.NEW_STUDENT_FACULTY));
 renderStudentsTable(
@@ -57,7 +58,7 @@ addStudentFormButton
 headingsCells.forEach((cell) => {
   cell.addEventListener('click', (event) => renderStudentsTable(
     prepareCustomSort(
-      actualArrayOfStudents,
+      isFiltered(actualArrayOfStudents, filtersControls),
       event.target,
       undefined,
     )
@@ -65,21 +66,18 @@ headingsCells.forEach((cell) => {
 })
 
 setFacultyOptions(document.getElementById(filtersIDs.filtersControls.FACULTY));
-getFiltersControls().forEach((control) => {
+filtersControls.forEach((control) => {
   control.addEventListener(control.tagName === 'SELECT'
       ? 'change'
       : 'input'
     , () => {
-      if (control.value.length >= (control.tagName === 'SELECT' ? 2 : 3)) {
-        console.log(control.value);
-        const findSortResult = findSortColumnID();
-        renderStudentsTable(
-          customSort(
-            customFilter(actualArrayOfStudents, control),
-            findSortResult.classFlag,
-            getSortingProperty(findSortResult.sortedColumnID),
-          )
-        );
+      const foundSortResult = findSortColumnID();
+      if (isFilterControlValid(control)
+        || control.value.length <= 0) {
+        setFiltered(
+          actualArrayOfStudents,
+          filtersControls,
+          foundSortResult);
       }
     })
 })
