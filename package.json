@@ -11,7 +11,6 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-formatter-gitlab": "^2.1.0",
     "eslint-plugin-import": "^2.22.1",
-    "pluralizer-for-js": "~1.0.6",
-    "bootstrap": "^5.3.2"
+    "pluralizer-for-js": "~1.0.6"
   }
 }
