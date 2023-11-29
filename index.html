@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="style.css" rel="stylesheet">
+  <title>Список студентов</title>
+
+  <script defer src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="main.mjs" type="module"></script>
+</head>
+
+<body>
+<div class="container">
+  <h1 class="mb-4 mt-4">Панель управление студентами</h1>
+
+  <div class="filters mb-4 gap-3 d-flex justify-content-between" id="filters-block">
+    <div class="filters__controls d-flex gap-4" id="filters-controls-block">
+      <div class="filters__fio-block col-3">
+        <input aria-label="Фильтрация по фамилии, имени, отчеству студента" class="form-control form-control" id="filter-fio-control-id" placeholder="Ф.И.О." type="text">
+      </div>
+      <div class="filters__faculty-block col-3">
+        <select aria-label="Фильтрация по факультету" class="form-select form-select" id="filter-faculty-control-id">
+          <option selected value="">Не выбрано</option>
+        </select>
+      </div>
+      <div class="filters__start-study-year-block col-3">
+        <input aria-label="Фильтрация по году начала обучения" class="form-control form-control" id="filter-start-study-year-control-id" placeholder="Год начала обучения" type="number">
+      </div>
+      <div class="filters__finish-study-year-block col-3">
+        <input aria-label="Фильтрация по году окончания обучения" class="form-control form-control" id="filter-finish-study-year-control-id" placeholder="Год окончания обучения" type="number">
+      </div>
+    </div>
+    <button
+      class="btn btn-outline-secondary visually-hidden"
+      id="filters-clear-button-id"
+      type="button"
+    >сбросить фильтры
+    </button>
+  </div>
+
+  <table class="table table-hover caption-top mb-4" id="students-table">
+    <caption>Список студентов</caption>
+    <thead>
+    <tr>
+      <th id="students-fio-column" scope="col">
+        <span class="table-column-name">
+          Ф.И.О.
+        </span>
+      </th>
+      <th id="students-faculty-column" scope="col">
+        <span class="table-column-name">
+          Факультет
+        </span>
+      </th>
+      <th id="students-dob-column" scope="col">
+        <span class="table-column-name">
+          Дата рождения и возраст
+        </span>
+      </th>
+      <th id="students-years-of-study" scope="col">
+        <span class="table-column-name">
+          Годы обучения
+        </span>
+      </th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider" id="table-body">
+    </tbody>
+  </table>
+
+  <button
+    class="btn btn-primary"
+    data-bs-target="#add-student-modal"
+    data-bs-toggle="modal"
+    id="new-student-form-call-button"
+    type="button"
+  >Добавить студента
+  </button>
+
+  <div aria-hidden="true" aria-labelledby="Модальное окно - Добавить студента" class="modal fade" id="add-student-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="add-student-modal-label">Добавить студента</h1>
+          <button aria-label="Закрыть окно" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+        </div>
+        <form class="modal-body needs-validation" id="new-student-form" name="add-student-form" novalidate>
+          <div class="input-group has-validation mb-2">
+            <span class="input-group-text">Фамилия</span>
+            <input aria-label="Фамилия студента" class="form-control" id="new-student-surname" name="new-student-surname" required type="text">
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="input-group has-validation mb-2">
+            <span class="input-group-text">Имя</span>
+            <input aria-label="Имя студента" class="form-control" id="new-student-name" name="new-student-name" required type="text">
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="input-group has-validation mb-4">
+            <span class="input-group-text">Отчество</span>
+            <input aria-label="Отчество студента" class="form-control" id="new-student-patronymic" name="new-student-patronymic" required type="text">
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="input-group has-validation mb-4">
+            <span class="input-group-text">Дата рождения</span>
+            <input aria-label="Дата рождения студента" class="form-control" id="new-student-dob" name="new-student-dob" required type="date">
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="input-group has-validation mb-2">
+            <span class="input-group-text">Факультет</span>
+            <select aria-label="Факультет" class="form-select" id="new-student-faculty" name="new-student-faculty" required>
+              <option disabled selected value="">Выберите факультет</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="input-group has-validation">
+            <span class="input-group-text">Год начала обучения</span>
+            <input aria-label="Год начала обучения" class="form-control" id="new-student-start-studies-year" name="new-student-start-studies-year" placeholder="гггг" required type="number">
+            <div class="invalid-feedback"></div>
+          </div>
+        </form>
+        <div class="modal-footer justify-content-between align-items-center">
+          <small class="text-body-secondary col">Все поля обязательны для заполнения</small>
+          <button class="btn btn-primary col-3" id="add-student-button" type="submit">Добавить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
