@@ -1,4 +1,4 @@
-import {pluralizer} from '../../node_modules/pluralizer-for-js/pluralizer.mjs';
+import {pluralizer} from "./pluralizer.mjs";
 
 export function convertDobToTableTd(studentDob) {
   const options = {

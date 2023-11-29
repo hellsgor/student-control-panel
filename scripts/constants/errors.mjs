@@ -1,5 +1,5 @@
-import {pluralizer} from "../../node_modules/pluralizer-for-js/pluralizer.mjs";
 import {constants} from "./consts.mjs";
+import {pluralizer} from "../table/pluralizer.mjs";
 
 export const errors = {
   studentParseErrors: {
